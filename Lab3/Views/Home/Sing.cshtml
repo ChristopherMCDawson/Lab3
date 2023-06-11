@@ -1,0 +1,29 @@
+﻿@model dynamic
+@{
+    int monkeys = ViewBag.Monkeys;
+}
+
+<h2>Song Lyrics</h2>
+
+@for (int i = monkeys; i > 0; i--)
+{
+    <p>@i @(i == 1 ? "monkey" : "monkeys") hanging on the wall,</p>
+    <p>@i @(i == 1 ? "monkey" : "monkeys") of monkeys,</p>
+    <p>Take one down, bounce it around,</p>
+    <p>@(i - 1 == 0 ? "No more monkeys" : (i - 1).ToString()) @(i - 1 == 1 ? "monkey" : "monkeys") hanging on the wall!</p>
+}
+
+@if (monkeys <= 0)
+{
+    <p>No more monkeys hanging on the wall,</p>
+    <p>No more monkeys hanging on the wall,</p>
+    <p>Go to the Jungle, Lead them to the wall</p>
+    <p>@ViewBag.Monkeys @(ViewBag.Monkeys == 1 ? "monkey" : "monkeys") hanging on the wall!</p>
+}
+
+@using (Html.BeginForm("SongForm", "Home"))
+{
+    <div>
+        <input type="submit" value="Play Again" />
+    </div>
+}

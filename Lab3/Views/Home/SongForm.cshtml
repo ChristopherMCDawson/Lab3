@@ -1,0 +1,15 @@
+﻿@model int
+@Html.ActionLink("Show the Song!", "SongForm", "Home")
+@using (Html.BeginForm("Sing", "Home"))
+{
+    <div>
+        @Html.Label("Number of Monkeys (50-100):")
+        @Html.TextBoxFor(m => m)
+        @Html.ValidationMessageFor(m => m)
+    </div>
+
+    <div>
+        <input type="submit" value="Sing Song" />
+    </div>
+}
+

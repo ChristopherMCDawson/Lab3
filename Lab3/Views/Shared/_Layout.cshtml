@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        Christopher Decaire-Dawson , Welcome to my Lab 3! @ViewBag.title
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+
+@section Styles{
+    <link rel="stylesheet" hred="~/wwwroot/StyleSheet.css"/>
+}
+
+<h1>
+    My Footer and why.
+    <br />
+            A. An HTML layout is a blueprint used to arrange web pages in a well-defined manner. 
+            It is easy to navigate, simple to understand 
+            and uses HTML tags to customize web design elements.
+            <br>
+            B.  I put Lyout in the Shared/View directory ,
+            because it's used and shared by and used by all view compents
+            it can be called on and changed around smoothly.
+            The CSS is in the wwwroot because Static files can be stored in any folder under the web root
+            and accessed with a relative path to that root.
+            <br>
+            C.  Becuase having it shown to public can be a seruity risk.
+            <br>
+</h1>
+        @RenderSection("Scripts", required: false)
+    </footer>
+
+
+
+</body>
+</html>
