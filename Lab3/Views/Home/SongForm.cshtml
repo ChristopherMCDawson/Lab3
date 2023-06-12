@@ -1,16 +1,8 @@
-﻿@model int
+﻿@{
+    ViewBag.Title = "Hanging Monkeys";
+}
 
-@Html.ActionLink("Show the Song!", "SongForm", "Home")
-
-@using (Html.BeginForm("Sing", "Home"))
+@using (Html.BeginForm("Sing", "Home", FormMethod.Post))
 {
-    <div>
-        @Html.Label("Number of Monkeys (50-100):")
-        @Html.TextBoxFor(m => m)
-        @Html.ValidationMessageFor(m => m)
-    </div>
-
-    <div>
-        <input type="submit" value="Sing Song" />
-    </div>
+    <p>Enter the number of monkeys between 50 and 100: <input type="number" name="monkey-count" min="50" max="100" /> <button type="submit">Sing!</button></p>
 }

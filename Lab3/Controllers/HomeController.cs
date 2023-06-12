@@ -18,10 +18,10 @@ namespace Lab3.Controllers
             return View("Sing");
         }
 
-        public IActionResult CreateStudent() => View();
+        public IActionResult CreatePerson() => View();
 
         [HttpPost]
-        public IActionResult DisplayStudent(Person person)
+        public IActionResult DisplayPerson(Person person)
         {
             ViewBag.person = person;
             return View("DisplayPerson");
