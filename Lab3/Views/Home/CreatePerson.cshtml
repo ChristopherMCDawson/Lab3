@@ -1,44 +1,18 @@
-﻿@model Lab3.Models.Person
+﻿@model Lab3.Models.Student;
+@{
+    ViewBag.Title = "Create Person";
+}
 
-@using (Html.BeginForm("DisplayPerson", "Home"))
+<h1>Create Your Favourite Student</h1>
+
+@using (Html.BeginForm("Displayperson", "Home", FormMethod.Post))
 {
-    <div>
-        @Html.LabelFor(m => m.FirstName)
-        @Html.TextBoxFor(m => m.FirstName)
-        @Html.ValidationMessageFor(m => m.FirstName)
-    </div>
+    <p>First Name: @Html.TextBox("FirstName")</p>
+    <p>Last Name: @Html.TextBox("LastName")</p>
+    <p>Age: @Html.TextBox("Age","", new { type = "number" })</p>
+    <p>Email Address: @Html.TextBox("Email","", new { type = "email" })</p>
+    <p>Password: @Html.Password("Password")</p>
+    <p>Description: @Html.TextBox("Description")</p>
 
-    <div>
-        @Html.LabelFor(m => m.LastName)
-        @Html.TextBoxFor(m => m.LastName)
-        @Html.ValidationMessageFor(m => m.LastName)
-    </div>
-
-    <div>
-        @Html.LabelFor(m => m.Age)
-        @Html.TextBoxFor(m => m.Age)
-        @Html.ValidationMessageFor(m => m.Age)
-    </div>
-
-    <div>
-        @Html.LabelFor(m => m.EmailAddress)
-        @Html.TextBoxFor(m => m.EmailAddress)
-        @Html.ValidationMessageFor(m => m.EmailAddress)
-    </div>
-
-    <div>
-        @Html.LabelFor(m => m.Password)
-        @Html.PasswordFor(m => m.Password)
-        @Html.ValidationMessageFor(m => m.Password)
-    </div>
-
-    <div>
-        @Html.LabelFor(m => m.Description)
-        @Html.TextAreaFor(m => m.Description)
-        @Html.ValidationMessageFor(m => m.Description)
-    </div>
-
-    <div>
-        <input type="submit" value="Submit" />
-    </div>
+    <button type="submit">Create</button>
 }

@@ -1,41 +1,49 @@
-﻿@{
-    Layout = "/Views/Shared/_Layout.cshtml";
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/wwwroot/StyleSheet.css" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <header>
-        @ViewBag.Title
+
+        <h1>Christopher Decaire-Dawson, Welcome to my Lab 3!</h1> 
         <br />
-        <br />
-        @Html.ActionLink("Show the Song Form", "SongForm", "Home")<br />
-        @Html.ActionLink("Create Person", "CreatePerson", "Home")<br />
-        Christopher Decaire-Dawson, Welcome to my Lab 3!<br />
+        <nav>
+            @Html.ActionLink("Home","Index", "Home")&nbsp;
+            @Html.ActionLink("Show the Song Form", "SongForm", "Home")&nbsp;<br />
+            @Html.ActionLink("Create Person", "CreatePerson", "Home")&nbsp;<br />
+        </nav>
     </header>
 
-    <div class="content"
+    <div class="content">
         @RenderBody()
     </div>
 
     <footer>
+        <p>What a layout does?        
+            Layout file is some common code that can be used for multiple other views. The other views get rendered inside the layout file using the "@@RenderBody()" command.
+        </p>
+        <br />
+        <p>How the CSS file was added:</p>
+        <ul>
+            <li>The wwwroot directory is created, from which static files such as css and js can be included in the views.</li>
+            <li>Inside wwwroot, "css" folder is created and a file named "StyleSheet.css" (containing the css code) is created within that folder.</li>
+            <li>Since _Layout.cshtml is common for all views, the css file is included in the layout file using the link tag in the head section: <br />
+             <code>&lt;link href=&quot;~/css/StyleSheet.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</code>
+            </li>
+        </ul>
+        <br />
+        <p>How the layout file was added:</p>
+        <ul>
+            <li>All layouts are assumed to be in Views/Shared folder. Therefore "_Layout.cshtml" is placed and we don't need to write the full path to include it anywhere.</li>
+            <li>The layout file can be set on a per view basis or for all views. </li>
+            <li>In this case, the default layout file for all views is "_Layout.cshtml" which is set in the _ViewStart.cshtml file.</li>
+        </ul>
+        <br />
         <p>
-            My Footer and why.
-            <br />
-            A. An HTML layout is a blueprint used to arrange web pages in a well-defined manner.
-            It is easy to navigate, simple to understand, and uses HTML tags to customize web design elements.
-            <br />
-            B. I put the layout in the Shared/Views directory because it's shared and used by all view components.
-            It can be called and changed smoothly. The CSS file is in the wwwroot because static files can be stored
-            in any folder under the web root and accessed with a relative path to that root.
-            <br />
-            C. It is not shown to the public to minimize security risks.
-            <br />
+          In the _ViewStart.cshtml file, the default layout is set to be the _Layout.cshtml file in Views > Shared folder.
         </p>
     </footer>
 
