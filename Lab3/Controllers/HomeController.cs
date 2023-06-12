@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Lab3.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace Lab3.Controllers
@@ -10,16 +11,26 @@ namespace Lab3.Controllers
         [HttpPost]
         public IActionResult Sing(int monkeys)
         {
-            if (monkeys >= 50 && monkeys <= 100)
+            try
             {
-                HttpContext.Session.SetInt32("Monkeys", monkeys);
-                return RedirectToAction("Sing");
+                if (monkeys >= 50 && monkeys <= 100)
+                {
+                    HttpContext.Session.SetInt32("Monkeys", monkeys);
+                    return RedirectToAction("Sing");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Please enter a number between 50 and 100.");
+                    return View("SongForm", monkeys);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                ModelState.AddModelError("", "Please enter a number between 50 and 100.");
-                return View("SongForm", monkeys);
+                ViewBag.ErrorMessage = "An error occurred while processing your request.";
+                // Log the exception or perform additional error handling if needed
+                return View("Error");
             }
+
         }
         public IActionResult Sing()
         {
@@ -28,25 +39,44 @@ namespace Lab3.Controllers
             return View();
         }
 
-        public IActionResult CreatePerson() => View();
+        public IActionResult CreatePerson()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = "An error occurred while processing your request.";
+                // Log the exception or perform additional error handling if needed
+                return View("Error");
+            }
+        }
 
         [HttpPost]
         public IActionResult DisplayPerson(Person person)
         {
-            // you will complete this
-        }
-        public IActionResult Error()
-        {
-            return View();
-        }
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    return RedirectToAction("DisplayPerson", person);
+                }
+
+                return View(person);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = "An error occurred while processing your request.";
+                // Log the exception or perform additional error handling if needed
+                return View("Error");
+            }
 
 
+        }
 
 
     }
-
-
-
 
 
 

@@ -1,43 +1,43 @@
-﻿<!DOCTYPE html>
+﻿@using Lab3.Models
 
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+
+    @section Styles {
+        <link rel="stylesheet" href="~/wwwroot/StyleSheet.css" />
+    }
 </head>
 <body>
     <header>
-        Christopher Decaire-Dawson , Welcome to my Lab 3! @ViewBag.title
+        @Html.ActionLink("Show the Song Form", "SongForm", "Home")
+        @Html.ActionLink("Create Person", "CreatePerson", "Home")
+        Christopher Decaire-Dawson, Welcome to my Lab 3!
     </header>
+
     <div>
         @RenderBody()
     </div>
+
     <footer>
-
-@section Styles{
-    <link rel="stylesheet" hred="~/wwwroot/StyleSheet.css"/>
-}
-
-<h1>
-    My Footer and why.
-    <br />
-            A. An HTML layout is a blueprint used to arrange web pages in a well-defined manner. 
-            It is easy to navigate, simple to understand 
-            and uses HTML tags to customize web design elements.
+        <h1>
+            My Footer and why.
+            <br />
+            A. An HTML layout is a blueprint used to arrange web pages in a well-defined manner.
+            It is easy to navigate, simple to understand, and uses HTML tags to customize web design elements.
             <br>
-            B.  I put Lyout in the Shared/View directory ,
-            because it's used and shared by and used by all view compents
-            it can be called on and changed around smoothly.
-            The CSS is in the wwwroot because Static files can be stored in any folder under the web root
-            and accessed with a relative path to that root.
+            B. I put the layout in the Shared/Views directory because it's shared and used by all view components.
+            It can be called and changed smoothly. The CSS file is in the wwwroot because static files can be stored
+            in any folder under the web root and accessed with a relative path to that root.
             <br>
-            C.  Becuase having it shown to public can be a seruity risk.
+            C. It is not shown to the public to minimize security risks.
             <br>
-</h1>
-        @RenderSection("Scripts", required: false)
+        </h1>
     </footer>
 
-
-
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
+
