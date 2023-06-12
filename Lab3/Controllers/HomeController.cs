@@ -11,19 +11,19 @@ namespace Lab3.Controllers
         }
         public IActionResult SongForm() => View();
 
-        [HttpPost]
+        [HttpPost]//Add this the support for the Post method here so that the monkey count can be updated.
         public IActionResult Sing(IFormCollection collection)
         {
-            ViewBag.monkeyCount = Int32.Parse(collection["monkey-count"]);
+            ViewBag.monkeyCount = Int32.Parse(collection["monkey-count"]);// Count the monkeys
             return View("Sing");
         }
 
         public IActionResult CreatePerson() => View();
 
-        [HttpPost]
+        [HttpPost]//Add this so that the person data can be added to a person entity and update it.
         public IActionResult DisplayPerson(Person person)
         {
-            ViewBag.person = person;
+            ViewBag.person = person;// Show the person.
             return View("DisplayPerson");
         }
         public IActionResult Error()
