@@ -1,5 +1,7 @@
 ﻿@model int
+
 @Html.ActionLink("Show the Song!", "SongForm", "Home")
+
 @using (Html.BeginForm("Sing", "Home"))
 {
     <div>
@@ -12,4 +14,3 @@
         <input type="submit" value="Sing Song" />
     </div>
 }
-

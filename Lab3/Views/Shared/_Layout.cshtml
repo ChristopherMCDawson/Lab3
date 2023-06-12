@@ -1,20 +1,21 @@
-﻿@using Lab3.Models
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-
-    @section Styles {
-        <link rel="stylesheet" href="~/wwwroot/StyleSheet.css" />
-    }
+    <link rel="stylesheet" href="~/wwwroot/StyleSheet.css" />
 </head>
 <body>
     <header>
-        @Html.ActionLink("Show the Song Form", "SongForm", "Home")
-        @Html.ActionLink("Create Person", "CreatePerson", "Home")
-        Christopher Decaire-Dawson, Welcome to my Lab 3!
+        <br />
+        <br />
+        @Html.ActionLink("Show the Song Form", "SongForm", "Home")<br />
+        @Html.ActionLink("Create Person", "CreatePerson", "Home")<br />
+        Christopher Decaire-Dawson, Welcome to my Lab 3!<br />
     </header>
 
     <div>
@@ -22,22 +23,20 @@
     </div>
 
     <footer>
-        <h1>
+        <p>
             My Footer and why.
             <br />
             A. An HTML layout is a blueprint used to arrange web pages in a well-defined manner.
             It is easy to navigate, simple to understand, and uses HTML tags to customize web design elements.
-            <br>
+            <br />
             B. I put the layout in the Shared/Views directory because it's shared and used by all view components.
             It can be called and changed smoothly. The CSS file is in the wwwroot because static files can be stored
             in any folder under the web root and accessed with a relative path to that root.
-            <br>
+            <br />
             C. It is not shown to the public to minimize security risks.
-            <br>
-        </h1>
+            <br />
+        </p>
     </footer>
 
-    @RenderSection("Scripts", required: false)
 </body>
 </html>
-
