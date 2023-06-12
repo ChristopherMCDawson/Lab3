@@ -6,11 +6,12 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/wwwroot/StyleSheet.css" />
 </head>
 <body>
     <header>
+        @ViewBag.Title
         <br />
         <br />
         @Html.ActionLink("Show the Song Form", "SongForm", "Home")<br />
@@ -18,7 +19,7 @@
         Christopher Decaire-Dawson, Welcome to my Lab 3!<br />
     </header>
 
-    <div>
+    <div class="content"
         @RenderBody()
     </div>
 
