@@ -24,7 +24,7 @@ namespace Lab3.Controllers
                     return View("SongForm", monkeys);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 ViewBag.ErrorMessage = "An error occurred while processing your request.";
                 // Log the exception or perform additional error handling if needed
@@ -45,7 +45,7 @@ namespace Lab3.Controllers
             {
                 return View();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 ViewBag.ErrorMessage = "An error occurred while processing your request.";
                 // Log the exception or perform additional error handling if needed
@@ -65,7 +65,7 @@ namespace Lab3.Controllers
 
                 return View(person);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 ViewBag.ErrorMessage = "An error occurred while processing your request.";
                 // Log the exception or perform additional error handling if needed
