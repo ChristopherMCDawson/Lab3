@@ -1,6 +1,6 @@
 ﻿namespace Lab3.Models
 {
-    public class Person// Getters and setters for taking down the person creation option.
+    public class Person
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }

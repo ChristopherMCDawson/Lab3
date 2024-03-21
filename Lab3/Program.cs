@@ -1,5 +1,5 @@
 namespace Lab3
-{// Didn't have to change anything here! Yay.
+{
     public class Program
     {
         public static void Main(string[] args)
