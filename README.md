@@ -1,0 +1,1 @@
+Using Razor pages to reuqest an upload of a file to the sesson and using that input to output a song and series of numbers to show input and output in a .net web applcation ,Which is to be hosted on Azure.
